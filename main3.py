@@ -188,6 +188,9 @@ def main():
             else:
                 lemmas_with_indexes[lemm].append(lemm_work[lemm])
     print(lemmas_with_indexes)
+    request_user = input("Enter your request: ")
+    answer = search_indexes(request_user, lemmas_with_indexes)
+    print(f"Страницы, удовлетворяющие запросу: {answer}")
 
 if __name__ == "__main__":
     main()
