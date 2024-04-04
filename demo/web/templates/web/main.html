@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Поисковик</title>
+</head>
+<body>
+<h1>Поиск</h1>
+<form action="" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Найти</button>
+</form>
+
+{% if is_word %}
+{% if is_empty %}
+<p> По этому запросу результат не найден </p>
+{% endif %}
+<div>
+    <ul>
+        {% for res in total_res %}
+        <li><a href="{{ res }}" target="_blank">{{res}}</a></li>
+        {% endfor %}
+    </ul>
+</div>
+
+{% endif %}
+</body>
+</html>
